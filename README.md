@@ -15,12 +15,9 @@ For more information regarding the platform itself, please visit SMMVS' [officia
 2. Download the latest release and add this library into Arduino IDE (Sketch > Include Library > Add .ZIP Library...)  
 
 ## Examples
-Please note that `SMMVSStoreSecure` and `SMMVSGetLatestSecure` are preferred than `SMMVSStoreData` and `SMMVSGetLatestSecure` because they use HTTPS (port 443) rather than HTTP (port 80).  
+Note there are 2 ways that can be used to save data to the smmvs server using `http get or http post`. Please not that `send()` and `get()` functions are preferred over `sendNonSecure()` and `getNonSecure()` functions because they use HTTPS (port 443) instead of HTTP (port 80).
+please note that there are 2 way wicth
 
-* **SMMVSGetLatestData** - Fetch the latest data stored in a project device
-* **SMMVSGetLatestSecure** - Fetch the latest data stored in a project device through HTTPS  
-* **SMMVSStoreData** - Deploy data into a project device
-* **SMMVSStoreSecure** - Deploy data into a project device through HTTPS  
 
 ## API Reference
 
@@ -40,10 +37,16 @@ Insert a JSON key-value data to the property `jsonString` of class `SMMVSESP32HT
     * `float`
     * `double`  
 
-* `void sendNonSecure()`    
+* `void sendNonSecure(String _serverNoHttpLocal, const char *_serverCharLocal, const int httpPort, String endpoint)`    
 **(Not recommended)** Send the data stored in `jsonString` property of class `SMMVSESP32HTTP` through HTTP port 80 (non-secure).  
 
 * `void send()`  
+**(Recommended)** Send the data stored in `jsonString` property of class `SMMVSESP32HTTP` through HTTPS port 443 (secure).  
+
+* `void getNonSecure(String _serverNoHttpLocal, const char *_serverCharLocal, const int httpPort, String endpoint, String data)`    
+**(Not recommended)** Send the data stored in `jsonString` property of class `SMMVSESP32HTTP` through HTTP port 80 (non-secure).  
+
+* `void get(String data)`  
 **(Recommended)** Send the data stored in `jsonString` property of class `SMMVSESP32HTTP` through HTTPS port 443 (secure).  
 
 **Powered by SMMVS Team**
