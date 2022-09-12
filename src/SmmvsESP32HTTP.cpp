@@ -64,6 +64,11 @@ void SmmvsESP32HTTP::getNonSecure(String _serverNoHttpLocal, const char *_server
         printDebug("[SMMVS] Bad Gateway! Response: 502\n");
         printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
     }
+    else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
+    {
+        printDebug("[SMMVS] Bad Request! Response: 400\n");
+        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
+    }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
         printDebug("[SMMVS] Unauthorized! Response: 401\n");
@@ -147,6 +152,11 @@ void SmmvsESP32HTTP::get(String data)
     {
         printDebug("[SMMVS] Bad Gateway! Response: 502\n");
         printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
+    }
+    else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
+    {
+        printDebug("[SMMVS] Bad Request! Response: 400\n");
+        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
@@ -372,6 +382,11 @@ void SmmvsESP32HTTP::sendNonSecure(String _serverNoHttpLocal, const char *_serve
         printDebug("[SMMVS] Bad Gateway! Response: 502\n");
         printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
     }
+    else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
+    {
+        printDebug("[SMMVS] Bad Request! Response: 400\n");
+        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
+    }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
         printDebug("[SMMVS] Unauthorized! Response: 401\n");
@@ -477,6 +492,11 @@ void SmmvsESP32HTTP::send()
     {
         printDebug("[SMMVS] Bad Gateway! Response: 502\n");
         printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
+    }
+    else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
+    {
+        printDebug("[SMMVS] Bad Request! Response: 400\n");
+        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
