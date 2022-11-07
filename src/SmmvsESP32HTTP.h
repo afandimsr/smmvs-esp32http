@@ -8,35 +8,35 @@
 
 static const char *smmvs_root_ca =
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFXDCCBESgAwIBAgISA7rfL/327oE1CE1QAKTpRatIMA0GCSqGSIb3DQEBCwUA\n"
+    "MIIFVTCCBD2gAwIBAgISBNRKbUEvfE1RhROph3lB/zfAMA0GCSqGSIb3DQEBCwUA\n"
     "MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD\n"
-    "EwJSMzAeFw0yMjA3MjkwNjU0MjlaFw0yMjEwMjcwNjU0MjhaMCYxJDAiBgNVBAMT\n"
-    "G3NtbXZzLmFoYS1zbWFydC1wcm9qZWN0LmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD\n"
-    "ggEPADCCAQoCggEBAJxY0iKHes2ObHIzT5fKkCtRvjZ8HRV8FUMp3SiigDwMIAwo\n"
-    "80SqG4NvelPEQeLXZplUeivpFAbTe1vyLv8wb/H6uSXilhgZYqivQyUfBPbHXqOz\n"
-    "iBhxH1SO13aDtnMzoksOiFcY9bI5N859+qFnAywwD/GSy7swB1zocx+uZs5LQxaR\n"
-    "EVgdk/86wxTPkzvrmIaU557Tcu6k4bXlsVTaXN0mDa+GDOvU/ecO4HnMk2QKKleG\n"
-    "5YADqdi68Sd5abX7eSNrC6+BFpX+m8ArdmSqRmU53IkGmag1CZzv+jpLTc0yYIDi\n"
-    "0GyQFYywMkhq3cAU2z9aS+7eU70yfoGrsJdd1jsCAwEAAaOCAnYwggJyMA4GA1Ud\n"
-    "DwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0T\n"
-    "AQH/BAIwADAdBgNVHQ4EFgQUZUCc979n5sbjplL7slhtlsrkoqYwHwYDVR0jBBgw\n"
-    "FoAUFC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUF\n"
-    "BzABhhVodHRwOi8vcjMuby5sZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9y\n"
-    "My5pLmxlbmNyLm9yZy8wRwYDVR0RBEAwPoIbc21tdnMuYWhhLXNtYXJ0LXByb2pl\n"
-    "Y3QuY29tgh93d3cuc21tdnMuYWhhLXNtYXJ0LXByb2plY3QuY29tMEwGA1UdIARF\n"
-    "MEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEBMCgwJgYIKwYBBQUHAgEWGmh0dHA6\n"
-    "Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBAwYKKwYBBAHWeQIEAgSB9ASB8QDvAHYA\n"
-    "36Veq2iCTx9sre64X04+WurNohKkal6OOxLAIERcKnMAAAGCSPMgjgAABAMARzBF\n"
-    "AiEA9ojw1mjtnPS22UhCOML71I2rshHGwLuL7rnfhHAiNmQCIEs/cB6ursydxjk7\n"
-    "iSu6ZsG/hj7wt+Xgx1wVlKZKvMVXAHUAKXm+8J45OSHwVnOfY6V35b5XfZxgCvj5\n"
-    "TV0mXCVdx4QAAAGCSPMgggAABAMARjBEAiAFR9PRd5UzHgHWMVsfdNJ8NiJOfrfe\n"
-    "AQUlkshGi3VhkAIgRXxf1QpE3OdhYBPwud6/xHLNgm8kKhjNcKLNeHRnRpkwDQYJ\n"
-    "KoZIhvcNAQELBQADggEBAGpi74U4koj7IQ7v1/KhyIgugvGDYHY1l+rtd5jgM7b1\n"
-    "whMW6XORNdZeDWRRpEr/9Xk78nA4HgZl+WCr1QFQkQOU/Sja4B5r4xcin+gbGuC8\n"
-    "Gmus2XiwDTglq53mX4+3htm6BFXFZf6hCKHdky0MpbJg2rsHWgzRuoB2vkgcdLYM\n"
-    "CEOY/BUVbVEc1Af6fmxBAIdeLjmvlFPtCD3YAvnW2fYQaxYPPz1x1e9dxrCWZ1zW\n"
-    "Yu/TIvSuDJzDAEn8BchvVsjD/AWR2z45qJgsodwxgIzyAMTFv0EpclD8D4/4t6Pc\n"
-    "GRPEurUUxs6Koj83t/vWBMLVBv1F0y/f10ApNfyKKOU=\n"
+    "EwJSMzAeFw0yMjExMDgwMjQyNDJaFw0yMzAyMDYwMjQyNDFaMBsxGTAXBgNVBAMT\n"
+    "EGlvdC10ZWxlcGF0aS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\n"
+    "AQC68XrF+u4xVAv/+l2vuvICGBdOJY98elmALLdRLmbJv4HyC2hWbXw0geNGbFGG\n"
+    "wZsQNqU+wnXa5EYaqLhr6rH2gxrpR/Z6ZzcVNgtyBVYLFP418plF9tdTdLIdAiAT\n"
+    "mC8CA+eL3SJbemWu7WkiCB633MMaDT/Bbf1B5Vloe8g/jXHVfWU+y5YTrDpQyIoW\n"
+    "Rp9SK1AcBFtE+bubWpSKPJgw2LI8hD0Vyz7OMM1c+w2xt7QGTvDnfF5uxnx2976A\n"
+    "wN+I5brHlCiv5ngY9fwWy+hsFqJBP7DhNitydgLdzFfMcFaIkseJuiBmm+Olhhbm\n"
+    "K4F9Zti63E2NAdB0o/zTvI6TAgMBAAGjggJ6MIICdjAOBgNVHQ8BAf8EBAMCBaAw\n"
+    "HQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYD\n"
+    "VR0OBBYEFIsHUBFBU9gImzrYlwL9bgwNRmf2MB8GA1UdIwQYMBaAFBQusxe3WFbL\n"
+    "rlAJQOYfr52LFMLGMFUGCCsGAQUFBwEBBEkwRzAhBggrBgEFBQcwAYYVaHR0cDov\n"
+    "L3IzLm8ubGVuY3Iub3JnMCIGCCsGAQUFBzAChhZodHRwOi8vcjMuaS5sZW5jci5v\n"
+    "cmcvMEgGA1UdEQRBMD+CEGlvdC10ZWxlcGF0aS5jb22CFW1haWwuaW90LXRlbGVw\n"
+    "YXRpLmNvbYIUd3d3LmlvdC10ZWxlcGF0aS5jb20wTAYDVR0gBEUwQzAIBgZngQwB\n"
+    "AgEwNwYLKwYBBAGC3xMBAQEwKDAmBggrBgEFBQcCARYaaHR0cDovL2Nwcy5sZXRz\n"
+    "ZW5jcnlwdC5vcmcwggEGBgorBgEEAdZ5AgQCBIH3BIH0APIAdwB6MoxU2LcttiDq\n"
+    "OOBSHumEFnAyE4VNO9IrwTpXo1LrUgAAAYRVVUYzAAAEAwBIMEYCIQCeWBi2l/B6\n"
+    "1gcCdg1PwjNgXA9yFzIX5kESavl5D2Dt3QIhAP3r5BdEyfgjcu7m8OobhPO6Gxk1\n"
+    "tO5fbwRmCnwdrA+yAHcArfe++nz/EMiLnT2cHj4YarRnKV3PsQwkyoWGNOvcgooA\n"
+    "AAGEVVVGPQAABAMASDBGAiEA1MDNgTt4m+gOOOYJvrOBDkJk/wcJyy5Q9xYWAFwU\n"
+    "5WoCIQCWt1a2UOaQC0F7YHpZ9wqw2kV43U2ILaADhu3IRilQ0jANBgkqhkiG9w0B\n"
+    "AQsFAAOCAQEAaH8w0A+x4U3AmzRDeKUyi8qioJcW9TD1BA4ulxeCH9/0KMbQ0lwQ\n"
+    "LexV3VtlluaMtkIYCncLuxIXmorK2wAqTfIThZVC7BPW/DUhAFA2MVuaHoBJyv9O\n"
+    "s/YnzOSNL3EVRbaq6wENv97R/JxRCnV14wPlcohntD8di1RUhp5b1ST4ycR/rvsj\n"
+    "uw1klfqrbLz3RQ++nvbpQklixIeMI5OaK9ZilsaST2QnDCP7qK0ipSMISucfJ4CB\n"
+    "HPTVSYWrv4BK6GJVUVDeo8jj1t0FM0RBsfR/E8nBAa2g5EqxMuzRf5LF+uy1dEH4\n"
+    "9C0da2RXRYjragTHKaRBK2ETQENjjHNNCQ==\n"
     "-----END CERTIFICATE-----\n";
 
 class SmmvsESP32HTTP
@@ -111,10 +111,10 @@ private:
   void printDebug(String text);
   String ipToString(IPAddress ip);
   String _accessKey;
-  String _server = "http://smmvs.aha-smart-project.com";
-  String _serverNoHttp = "smmvs.aha-smart-project.com";
+  String _server = "http://iot-telepati.com";
+  String _serverNoHttp = "iot-telepati.com";
 
-  const char *_serverChar = "smmvs.aha-smart-project.com";
+  const char *_serverChar = "iot-telepati.com";
   String _port = "8000";
   uint16_t _portNum = 8000;
 

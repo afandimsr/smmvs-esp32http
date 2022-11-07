@@ -7,10 +7,9 @@ SmmvsESP32HTTP::SmmvsESP32HTTP(String accessKey)
 
 void SmmvsESP32HTTP::getNonSecure(String _serverNoHttpLocal, const char *_serverCharLocal, const int httpPort, String endpoint, String data)
 {
-
     jsonGetString = "";
     _getSuccess = false;
-    printDebug("[SMMVS] Connecting to " + _serverNoHttpLocal + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttpLocal + "\n");
 
     // const char* _serverCharLocal = "http://127.0.0.1";
     // Use WiFiClient class to create TCP connections
@@ -18,7 +17,7 @@ void SmmvsESP32HTTP::getNonSecure(String _serverNoHttpLocal, const char *_server
     // const int httpPort = 8007;
     if (!client.connect(_serverCharLocal, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return;
     }
 
@@ -39,7 +38,7 @@ void SmmvsESP32HTTP::getNonSecure(String _serverNoHttpLocal, const char *_server
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return;
         }
@@ -54,38 +53,38 @@ void SmmvsESP32HTTP::getNonSecure(String _serverNoHttpLocal, const char *_server
     // Check if response is successful
     if (line.indexOf("HTTP/1.1 201 Created") >= 0)
     {
-        printDebug("[SMMVS] Created! Response: 201\n\n");
-        printDebug("[SMMVS] Header Response Start\n");
+        printDebug("[IOTTELEPATI] Created! Response: 201\n\n");
+        printDebug("[IOTTELEPATI] Header Response Start\n");
         printDebug(line + "\n");
-        printDebug("[SMMVS] Header Response End\n\n");
+        printDebug("[IOTTELEPATI] Header Response End\n\n");
     }
     else if (line.indexOf("HTTP/1.1 502 Bad Gateway") >= 0)
     {
-        printDebug("[SMMVS] Bad Gateway! Response: 502\n");
-        printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
+        printDebug("[IOTTELEPATI] Bad Gateway! Response: 502\n");
+        printDebug("[IOTTELEPATI] Note: please check your vehicle status in smmvs web\n\n");
     }
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
-        printDebug("[SMMVS] Bad Request! Response: 400\n");
-        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
-        printDebug("[SMMVS] Unauthorized! Response: 401\n");
-        printDebug("[SMMVS] Note: please check your api key\n\n");
+        printDebug("[IOTTELEPATI] Unauthorized! Response: 401\n");
+        printDebug("[IOTTELEPATI] Note: please check your api key\n\n");
     }
     else if (line.indexOf("HTTP/1.1 500 Internal Server Error") >= 0)
     {
-        printDebug("[SMMVS] Server Error! Response: 500\n");
-        printDebug("[SMMVS] Note: make sure the vehicle name and rn field are correct\n");
-        printDebug("[SMMVS] or contact your smmvs administrator server\n\n");
+        printDebug("[IOTTELEPATI] Server Error! Response: 500\n");
+        printDebug("[IOTTELEPATI] Note: make sure the vehicle name and rn field are correct\n");
+        printDebug("[IOTTELEPATI] or contact your smmvs administrator server\n\n");
     }
     else
     {
-        printDebug("[SMMVS] Creating data failed!\n");
+        printDebug("[IOTTELEPATI] Creating data failed!\n");
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     _getSuccess = true;
 }
 
@@ -94,7 +93,7 @@ void SmmvsESP32HTTP::get(String data)
 
     jsonGetString = "";
     _getSuccess = false;
-    printDebug("[SMMVS] Connecting to " + _serverNoHttp + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttp + "\n");
 
     // Use WiFiClient class to create TCP connections
     WiFiClientSecure client;
@@ -105,7 +104,7 @@ void SmmvsESP32HTTP::get(String data)
     const int httpPort = 443;
     if (!client.connect(_serverChar, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return;
     }
 
@@ -127,7 +126,7 @@ void SmmvsESP32HTTP::get(String data)
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return;
         }
@@ -143,38 +142,38 @@ void SmmvsESP32HTTP::get(String data)
     // Check if response is successful
     if (line.indexOf("HTTP/1.1 201 Created") >= 0)
     {
-        printDebug("[SMMVS] Created! Response: 201\n\n");
-        printDebug("[SMMVS] Header Response Start\n");
+        printDebug("[IOTTELEPATI] Created! Response: 201\n\n");
+        printDebug("[IOTTELEPATI] Header Response Start\n");
         printDebug(line + "\n");
-        printDebug("[SMMVS] Header Response End\n\n");
+        printDebug("[IOTTELEPATI] Header Response End\n\n");
     }
     else if (line.indexOf("HTTP/1.1 502 Bad Gateway") >= 0)
     {
-        printDebug("[SMMVS] Bad Gateway! Response: 502\n");
-        printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
+        printDebug("[IOTTELEPATI] Bad Gateway! Response: 502\n");
+        printDebug("[IOTTELEPATI] Note: please check your vehicle status in smmvs web\n\n");
     }
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
-        printDebug("[SMMVS] Bad Request! Response: 400\n");
-        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
-        printDebug("[SMMVS] Unauthorized! Response: 401\n");
-        printDebug("[SMMVS] Note: please check your api key\n\n");
+        printDebug("[IOTTELEPATI] Unauthorized! Response: 401\n");
+        printDebug("[IOTTELEPATI] Note: please check your api key\n\n");
     }
     else if (line.indexOf("HTTP/1.1 500 Internal Server Error") >= 0)
     {
-        printDebug("[SMMVS] Server Error! Response: 500\n");
-        printDebug("[SMMVS] Note: make sure the vehicle name and rn field are correct\n");
-        printDebug("[SMMVS] or contact your smmvs administrator server\n\n");
+        printDebug("[IOTTELEPATI] Server Error! Response: 500\n");
+        printDebug("[IOTTELEPATI] Note: make sure the vehicle name and rn field are correct\n");
+        printDebug("[IOTTELEPATI] or contact your smmvs administrator server\n\n");
     }
     else
     {
-        printDebug("[SMMVS] Creating data failed!\n");
+        printDebug("[IOTTELEPATI] Creating data failed!\n");
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     _getSuccess = true;
 }
 
@@ -183,7 +182,7 @@ String SmmvsESP32HTTP::getRaw()
 
     jsonGetString = "";
     _getSuccess = false;
-    printDebug("[SMMVS] Connecting to " + _serverNoHttp + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttp + "\n");
 
     // Use WiFiClient class to create TCP connections
     WiFiClientSecure client;
@@ -193,7 +192,7 @@ String SmmvsESP32HTTP::getRaw()
     const int httpPort = 443;
     if (!client.connect(_serverChar, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return "Conn failed";
     }
 
@@ -213,7 +212,7 @@ String SmmvsESP32HTTP::getRaw()
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return "Timeout";
         }
@@ -233,7 +232,7 @@ String SmmvsESP32HTTP::getRaw()
         payload = receivedData;
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     _getSuccess = true;
     return payload;
 }
@@ -242,7 +241,7 @@ String SmmvsESP32HTTP::getRawNonSecure(String server, String lat, String lon)
 {
     jsonGetString = "";
     _getSuccess = false;
-    printDebug("[SMMVS] Connecting to " + _serverNoHttp + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttp + "\n");
 
     // Use WiFiClient class to create TCP connections
     WiFiClient client;
@@ -250,7 +249,7 @@ String SmmvsESP32HTTP::getRawNonSecure(String server, String lat, String lon)
     const int httpPort = 8000;
     if (!client.connect(_serverChar, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return "Conn failed";
     }
 
@@ -270,7 +269,7 @@ String SmmvsESP32HTTP::getRawNonSecure(String server, String lat, String lon)
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return "Timeout";
         }
@@ -290,7 +289,7 @@ String SmmvsESP32HTTP::getRawNonSecure(String server, String lat, String lon)
         payload = receivedData;
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     _getSuccess = true;
     return payload;
 }
@@ -302,7 +301,7 @@ bool SmmvsESP32HTTP::getSuccess()
 
 void SmmvsESP32HTTP::sendNonSecure(String _serverNoHttpLocal, const char *_serverCharLocal, const int httpPort, String endpoint)
 {
-    printDebug("[SMMVS] Connecting to " + _serverNoHttpLocal + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttpLocal + "\n");
 
     // const char* _serverCharLocal = "http://192.168.209.70";
     // Use WiFiClient class to create TCP connections
@@ -310,7 +309,7 @@ void SmmvsESP32HTTP::sendNonSecure(String _serverNoHttpLocal, const char *_serve
     // const int httpPort = 8007;
     if (!client.connect(_serverCharLocal, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return;
     }
 
@@ -355,7 +354,7 @@ void SmmvsESP32HTTP::sendNonSecure(String _serverNoHttpLocal, const char *_serve
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return;
         }
@@ -372,45 +371,45 @@ void SmmvsESP32HTTP::sendNonSecure(String _serverNoHttpLocal, const char *_serve
     // Check if response is successful
     if (line.indexOf("HTTP/1.1 201 Created") >= 0)
     {
-        printDebug("[SMMVS] Created! Response: 201\n\n");
-        printDebug("[SMMVS] Header Response Start\n");
+        printDebug("[IOTTELEPATI] Created! Response: 201\n\n");
+        printDebug("[IOTTELEPATI] Header Response Start\n");
         printDebug(line + "\n");
-        printDebug("[SMMVS] Header Response End\n\n");
+        printDebug("[IOTTELEPATI] Header Response End\n\n");
     }
     else if (line.indexOf("HTTP/1.1 502 Bad Gateway") >= 0)
     {
-        printDebug("[SMMVS] Bad Gateway! Response: 502\n");
-        printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
+        printDebug("[IOTTELEPATI] Bad Gateway! Response: 502\n");
+        printDebug("[IOTTELEPATI] Note: please check your vehicle status in smmvs web\n\n");
     }
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
-        printDebug("[SMMVS] Bad Request! Response: 400\n");
-        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
-        printDebug("[SMMVS] Unauthorized! Response: 401\n");
-        printDebug("[SMMVS] Note: please check your api key\n\n");
+        printDebug("[IOTTELEPATI] Unauthorized! Response: 401\n");
+        printDebug("[IOTTELEPATI] Note: please check your api key\n\n");
     }
     else if (line.indexOf("HTTP/1.1 500 Internal Server Error") >= 0)
     {
-        printDebug("[SMMVS] Server Error! Response: 500\n");
-        printDebug("[SMMVS] Note: make sure the vehicle name and rn field are correct\n");
-        printDebug("[SMMVS] or contact your smmvs administrator server\n\n");
+        printDebug("[IOTTELEPATI] Server Error! Response: 500\n");
+        printDebug("[IOTTELEPATI] Note: make sure the vehicle name and rn field are correct\n");
+        printDebug("[IOTTELEPATI] or contact your smmvs administrator server\n\n");
     }
     else
     {
-        printDebug("[SMMVS] Creating data failed!\n");
+        printDebug("[IOTTELEPATI] Creating data failed!\n");
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     jsonString = "{}";
     _currentKey = "";
 }
 
 void SmmvsESP32HTTP::send()
 {
-    printDebug("[SMMVS] Connecting to " + _serverNoHttp + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttp + "\n");
 
     // Use WiFiClient class to create TCP connections
     WiFiClientSecure client;
@@ -421,7 +420,7 @@ void SmmvsESP32HTTP::send()
     const int httpPort = 443;
     if (!client.connect(_serverChar, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return;
     }
 
@@ -466,7 +465,7 @@ void SmmvsESP32HTTP::send()
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return;
         }
@@ -483,45 +482,45 @@ void SmmvsESP32HTTP::send()
     // Check if response is successful
     if (line.indexOf("HTTP/1.1 201 Created") >= 0)
     {
-        printDebug("[SMMVS] Created! Response: 201\n\n");
-        printDebug("[SMMVS] Header Response Start\n");
+        printDebug("[IOTTELEPATI] Created! Response: 201\n\n");
+        printDebug("[IOTTELEPATI] Header Response Start\n");
         printDebug(line + "\n");
-        printDebug("[SMMVS] Header Response End\n\n");
+        printDebug("[IOTTELEPATI] Header Response End\n\n");
     }
     else if (line.indexOf("HTTP/1.1 502 Bad Gateway") >= 0)
     {
-        printDebug("[SMMVS] Bad Gateway! Response: 502\n");
-        printDebug("[SMMVS] Note: please check your vehicle status in smmvs web\n\n");
+        printDebug("[IOTTELEPATI] Bad Gateway! Response: 502\n");
+        printDebug("[IOTTELEPATI] Note: please check your vehicle status in smmvs web\n\n");
     }
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
-        printDebug("[SMMVS] Bad Request! Response: 400\n");
-        printDebug("[SMMVS] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
-        printDebug("[SMMVS] Unauthorized! Response: 401\n");
-        printDebug("[SMMVS] Note: please check your api key\n\n");
+        printDebug("[IOTTELEPATI] Unauthorized! Response: 401\n");
+        printDebug("[IOTTELEPATI] Note: please check your api key\n\n");
     }
     else if (line.indexOf("HTTP/1.1 500 Internal Server Error") >= 0)
     {
-        printDebug("[SMMVS] Server Error! Response: 500\n");
-        printDebug("[SMMVS] Note: make sure the vehicle name and rn field are correct\n");
-        printDebug("[SMMVS] or contact your smmvs administrator server\n\n");
+        printDebug("[IOTTELEPATI] Server Error! Response: 500\n");
+        printDebug("[IOTTELEPATI] Note: make sure the vehicle name and rn field are correct\n");
+        printDebug("[IOTTELEPATI] or contact your smmvs administrator server\n\n");
     }
     else
     {
-        printDebug("[SMMVS] Creating data failed!\n");
+        printDebug("[IOTTELEPATI] Creating data failed!\n");
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     jsonString = "{}";
     _currentKey = "";
 }
 
 void SmmvsESP32HTTP::sendRaw(String text)
 {
-    printDebug("[SMMVS] Connecting to " + _serverNoHttp + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttp + "\n");
 
     // Use WiFiClient class to create TCP connections
     WiFiClientSecure client;
@@ -531,7 +530,7 @@ void SmmvsESP32HTTP::sendRaw(String text)
     const int httpPort = 443;
     if (!client.connect(_serverChar, httpPort))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return;
     }
 
@@ -574,7 +573,7 @@ void SmmvsESP32HTTP::sendRaw(String text)
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return;
         }
@@ -591,21 +590,21 @@ void SmmvsESP32HTTP::sendRaw(String text)
     // Check if response is successful
     if (line.indexOf("HTTP/1.1 201 Created") >= 0)
     {
-        printDebug("[SMMVS] Created! Response: 201\n");
+        printDebug("[IOTTELEPATI] Created! Response: 201\n");
     }
     else
     {
-        printDebug("[SMMVS] Creating data failed!\n");
+        printDebug("[IOTTELEPATI] Creating data failed!\n");
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     jsonString = "{}";
     _currentKey = "";
 }
 
 void SmmvsESP32HTTP::sendRawNonSecure(String text)
 {
-    printDebug("[SMMVS] Connecting to " + _serverNoHttp + "\n");
+    printDebug("[IOTTELEPATI] Connecting to " + _serverNoHttp + "\n");
 
     // Use WiFiClient class to create TCP connections
     WiFiClient client;
@@ -613,7 +612,7 @@ void SmmvsESP32HTTP::sendRawNonSecure(String text)
     const int httpPort = 443;
     if (!client.connect(_serverChar, _portNum))
     {
-        printDebug("[SMMVS] Connection failed!\n");
+        printDebug("[IOTTELEPATI] Connection failed!\n");
         return;
     }
 
@@ -656,7 +655,7 @@ void SmmvsESP32HTTP::sendRawNonSecure(String text)
     {
         if (millis() - timeout > 5000)
         {
-            Serial.println("[SMMVS] Client Timeout !\n");
+            Serial.println("[IOTTELEPATI] Client Timeout !\n");
             client.stop();
             return;
         }
@@ -673,14 +672,14 @@ void SmmvsESP32HTTP::sendRawNonSecure(String text)
     // Check if response is successful
     if (line.indexOf("HTTP/1.1 201 Created") >= 0)
     {
-        printDebug("[SMMVS] Created! Response: 201\n");
+        printDebug("[IOTTELEPATI] Created! Response: 201\n");
     }
     else
     {
-        printDebug("[SMMVS] Creating data failed!\n");
+        printDebug("[IOTTELEPATI] Creating data failed!\n");
     }
 
-    printDebug("\n[SMMVS] Closing connection...\n");
+    printDebug("\n[IOTTELEPATI] Closing connection...\n");
     jsonString = "{}";
     _currentKey = "";
 }
@@ -870,9 +869,9 @@ void SmmvsESP32HTTP::printData()
     DynamicJsonBuffer jsonBuffer;
     JsonObject &sendObject = jsonBuffer.parseObject(jsonString);
     JsonObject &getObject = jsonBuffer.parseObject(jsonGetString);
-    printDebug("\n\n[SMMVS] Data to send: \n\n");
+    printDebug("\n\n[IOTTELEPATI] Data to send: \n\n");
     sendObject.prettyPrintTo(Serial);
-    printDebug("\n\n[SMMVS] Data available to get: \n\n");
+    printDebug("\n\n[IOTTELEPATI] Data available to get: \n\n");
     getObject.prettyPrintTo(Serial);
 }
 
@@ -908,7 +907,7 @@ bool SmmvsESP32HTTP::wifiConnection(String SSID, String wifiPassword)
     _wifiPass = wifiPasswordChar;
 
     WiFi.begin(_wifiSSID, _wifiPass);
-    printDebug("[SMMVS] Trying to connect to " + SSID + "...\n");
+    printDebug("[IOTTELEPATI] Trying to connect to " + SSID + "...\n");
 
     // for (count=0;count<20;count++) {
     //     delay(500);
@@ -924,13 +923,13 @@ bool SmmvsESP32HTTP::wifiConnection(String SSID, String wifiPassword)
         if (counter >= 10)
         {
             counter = 0;
-            printDebug("[SMMVS] Could not connect to " + SSID + "! Retrying...\n");
+            printDebug("[IOTTELEPATI] Could not connect to " + SSID + "! Retrying...\n");
         }
     }
 
     WiFi.setAutoReconnect(true);
-    printDebug("\n[SMMVS] WiFi Connected!\n");
-    printDebug("[SMMVS] IP Address: " + ipToString(WiFi.localIP()) + "\n");
+    printDebug("\n[IOTTELEPATI] WiFi Connected!\n");
+    printDebug("[IOTTELEPATI] IP Address: " + ipToString(WiFi.localIP()) + "\n");
     return true;
 }
 
@@ -938,7 +937,7 @@ bool SmmvsESP32HTTP::checkWifiConnection()
 {
     if (WiFi.status() != WL_CONNECTED)
     {
-        printDebug("[SMMVS] WIFI RECONNECT...");
+        printDebug("[IOTTELEPATI] WIFI RECONNECT...");
         return wifiConnection(_wifiSSID, _wifiPass);
     }
 }
