@@ -922,6 +922,7 @@ bool SmmvsESP32HTTP::wifiConnection(String SSID, String wifiPassword)
         counter++;
         if (counter >= 10)
         {
+            ESP.restart();
             counter = 0;
             printDebug("[IOTTELEPATI] Could not connect to " + SSID + "! Retrying...\n");
         }
