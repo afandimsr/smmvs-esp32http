@@ -66,7 +66,7 @@ void SmmvsESP32HTTP::getNonSecure(String _serverNoHttpLocal, const char *_server
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
         printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
-        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty and make sure the device_name and rn field are correct\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
@@ -155,7 +155,7 @@ void SmmvsESP32HTTP::get(String data)
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
         printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
-        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty and make sure the device_name and rn field are correct\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
@@ -384,7 +384,7 @@ void SmmvsESP32HTTP::sendNonSecure(String _serverNoHttpLocal, const char *_serve
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
         printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
-        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty and make sure the device_name and rn field are correct\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
@@ -495,7 +495,7 @@ void SmmvsESP32HTTP::send()
     else if (line.indexOf("HTTP/1.1 400 Bad Request") >= 0)
     {
         printDebug("[IOTTELEPATI] Bad Request! Response: 400\n");
-        printDebug("[IOTTELEPATI] Note: Data value cannot empty\n\n");
+        printDebug("[IOTTELEPATI] Note: Data value cannot empty and make sure the device_name and rn field are correct\n\n");
     }
     else if (line.indexOf("HTTP/1.1 401 Unauthorized") >= 0)
     {
